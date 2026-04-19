@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, flash
 import mysql.connector
 
 app = Flask(__name__)
-app.secret_key = 'edutrack-secret-key'
+app.secret_key = 'StudentManagement-secret-key'
 
 def get_db():
     return mysql.connector.connect(
