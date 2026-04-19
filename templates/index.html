@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Students Management{% endblock %}
+
+{% block content %}
+<div class="page-header animate">
+    <p class="eyebrow">Dashboard</p>
+    <h1>Student Records</h1>
+    <p>Manage and track all enrolled students in one place.</p>
+</div>
+
+<div class="stats-row animate">
+    <div class="stat-chip">
+        <div class="label">Total Students</div>
+        <div class="value">{{ students|length }}</div>
+    </div>
+    <div class="stat-chip">
+        <div class="label">Courses Active</div>
+        <div class="value">{{ students|map(attribute=2)|unique|list|length if students else 0 }}</div>
+    </div>
+    <div class="stat-chip" style="flex:2; display:flex; align-items:center; justify-content:flex-end; gap:0.75rem;">
+        <a href="/add" class="btn btn-primary">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Add Student
+        </a>
+    </div>
+</div>
+
+{% if students %}
+<div class="table-wrap animate">
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Student</th>
+                <th>Age</th>
+                <th>Course</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in students %}
+            <tr>
+                <td style="color: var(--muted); font-size:0.8rem;">{{ '%03d' % s[0] }}</td>
+                <td>
+                    <div class="name-cell">
+                        <div class="avatar">{{ s[1][0]|upper }}</div>
+                        <span style="font-weight:500;">{{ s[1] }}</span>
+                    </div>
+                </td>
+                <td style="color:var(--muted);">{{ s[2] }} yrs</td>
+                <td><span class="badge">{{ s[3] }}</span></td>
+                <td>
+                    <a href="/delete/{{ s[0] }}" class="btn btn-danger"
+                        onclick="return confirm('Remove {{ s[1] }} from records?')">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+                        Remove
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="card empty-state animate">
+    <div class="icon">🎓</div>
+    <h3>No students yet</h3>
+    <p>Add your first student to get started.</p>
+    <br>
+    <a href="/add" class="btn btn-primary">Add First Student</a>
+</div>
+{% endif %}
+{% endblock %}

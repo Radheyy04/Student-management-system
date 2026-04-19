@@ -1,1 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Add Student {% endblock %}
 
+{% block content %}
+<div style="max-width: 520px;">
+    <div class="page-header animate">
+        <p class="eyebrow">New Entry</p>
+        <h1>Add Student</h1>
+        <p>Fill in the details below to enroll a new student.</p>
+    </div>
+
+    <div class="card animate">
+        <form method="POST" action="/add">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="e.g. Aarav Sharma" required autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" placeholder="e.g. 20" min="5" max="100" required>
+            </div>
+
+            <div class="form-group">
+                <label for="course">Course</label>
+                <input type="text" id="course" name="course" placeholder="e.g. Computer Science" required autocomplete="off">
+            </div>
+
+            <div style="display:flex; gap:0.75rem; margin-top:0.5rem;">
+                <button type="submit" class="btn btn-primary" style="flex:1; justify-content:center; padding:0.75rem;">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    Enroll Student
+                </button>
+                <a href="/" class="btn btn-ghost">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
