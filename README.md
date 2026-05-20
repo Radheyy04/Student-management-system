@@ -1,17 +1,19 @@
 # Student Management System
 
 ## Description
-This is a simple web-based project to manage student data using Flask and MySQL.
+A web-based Student Management System built using Flask and MySQL to manage student records and attendance efficiently through a simple and user-friendly interface.
 
 ## Features
 - Add student
 - View student list
 - Delete student
+- Mark Attendance
+- View Attendance
 
 ## Technologies Used
 - Python (Flask)
 - MySQL
-- HTML, CSS
+- HTML, CSS, JS
 
 ##  How to Run
 1. Install required packages
@@ -21,4 +23,4 @@ This is a simple web-based project to manage student data using Flask and MySQL.
    python app.py
 
 ## Database
-Create database `student_db` and table `students` before running.
+Create databases `student_db`, `expenses_db` and tables `students`, `attendance` and `expenses` before running.
