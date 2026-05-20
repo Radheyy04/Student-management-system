@@ -15,12 +15,21 @@
     </div>
     <div class="stat-chip">
         <div class="label">Courses Active</div>
-        <div class="value">{{ students|map(attribute=2)|unique|list|length if students else 0 }}</div>
+
+        <div class="value">{{ students | map(attribute=3) | list | unique | list | length if students else 0 }}</div>
     </div>
+
     <div class="stat-chip" style="flex:2; display:flex; align-items:center; justify-content:flex-end; gap:0.75rem;">
         <a href="/add" class="btn btn-primary">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             Add Student
+        </a>
+        <a href="/attendance" class="btn btn-primary">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Mark Attendance
+        </a>
+        <a href="/view_attendance" class="btn btn-ghost">
+            View Attendance
         </a>
     </div>
 </div>
@@ -68,6 +77,10 @@
     <p>Add your first student to get started.</p>
     <br>
     <a href="/add" class="btn btn-primary">Add First Student</a>
+    <div style="display:flex; gap:1rem; margin-top:1.5rem;">
+        <a href="/attendance" class="btn btn-primary">Mark Attendance</a>
+        <a href="/view_attendance" class="btn btn-ghost">View Attendance</a>
+    </div>
 </div>
 {% endif %}
 {% endblock %}

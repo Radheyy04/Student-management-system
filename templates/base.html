@@ -29,7 +29,6 @@
             overflow-x: hidden;
         }
 
-        /* Atmospheric background */
         body::before {
             content: '';
             position: fixed;
@@ -49,7 +48,6 @@
             z-index: 0;
         }
 
-        /* NAV */
         nav {
             position: sticky; top: 0; z-index: 100;
             display: flex; align-items: center; justify-content: space-between;
@@ -89,7 +87,6 @@
         .nav-links a:hover { color: var(--text); background: var(--surface2); }
         .nav-links a.active { color: var(--accent); background: rgba(79,255,176,0.08); }
 
-        /* MAIN */
         main {
             position: relative; z-index: 1;
             max-width: 1100px;
@@ -97,10 +94,7 @@
             padding: 3rem 2rem;
         }
 
-        /* PAGE HEADER */
-        .page-header {
-            margin-bottom: 2.5rem;
-        }
+        .page-header { margin-bottom: 2.5rem; }
         .page-header .eyebrow {
             font-size: 0.75rem;
             font-weight: 500;
@@ -116,13 +110,8 @@
             letter-spacing: -1px;
             line-height: 1.1;
         }
-        .page-header p {
-            color: var(--muted);
-            margin-top: 0.5rem;
-            font-size: 0.95rem;
-        }
+        .page-header p { color: var(--muted); margin-top: 0.5rem; font-size: 0.95rem; }
 
-        /* CARDS */
         .card {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -132,11 +121,7 @@
         }
         .card:hover { border-color: rgba(255,255,255,0.12); }
 
-        /* STAT CHIPS */
-        .stats-row {
-            display: flex; gap: 1rem; flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
+        .stats-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
         .stat-chip {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -147,7 +132,6 @@
         .stat-chip .label { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 1px; }
         .stat-chip .value { font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 700; }
 
-        /* BUTTONS */
         .btn {
             display: inline-flex; align-items: center; gap: 6px;
             padding: 0.6rem 1.25rem;
@@ -160,27 +144,13 @@
             text-decoration: none;
             transition: all 0.2s;
         }
-        .btn-primary {
-            background: var(--accent);
-            color: #0a0e1a;
-        }
+        .btn-primary { background: var(--accent); color: #0a0e1a; }
         .btn-primary:hover { background: #6fffc0; box-shadow: var(--glow); transform: translateY(-1px); }
-
-        .btn-ghost {
-            background: transparent;
-            color: var(--muted);
-            border: 1px solid var(--border);
-        }
+        .btn-ghost { background: transparent; color: var(--muted); border: 1px solid var(--border); }
         .btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,0.15); }
-
-        .btn-danger {
-            background: rgba(255,77,109,0.1);
-            color: var(--danger);
-            border: 1px solid rgba(255,77,109,0.2);
-        }
+        .btn-danger { background: rgba(255,77,109,0.1); color: var(--danger); border: 1px solid rgba(255,77,109,0.2); }
         .btn-danger:hover { background: rgba(255,77,109,0.2); transform: translateY(-1px); }
 
-        /* TABLE */
         .table-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid var(--border); }
         table { width: 100%; border-collapse: collapse; }
         thead tr { background: var(--surface2); }
@@ -194,17 +164,10 @@
             color: var(--muted);
             border-bottom: 1px solid var(--border);
         }
-        tbody tr {
-            border-bottom: 1px solid var(--border);
-            transition: background 0.15s;
-        }
+        tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
         tbody tr:last-child { border-bottom: none; }
         tbody tr:hover { background: rgba(255,255,255,0.03); }
-        tbody td {
-            padding: 1rem 1.25rem;
-            font-size: 0.9rem;
-            vertical-align: middle;
-        }
+        tbody td { padding: 1rem 1.25rem; font-size: 0.9rem; vertical-align: middle; }
 
         .badge {
             display: inline-block;
@@ -217,7 +180,6 @@
             border: 1px solid rgba(59,130,246,0.2);
         }
 
-        /* FORM */
         .form-group { margin-bottom: 1.5rem; }
         .form-group label {
             display: block;
@@ -246,21 +208,16 @@
         }
         .form-group input::placeholder { color: var(--muted); }
 
-        /* EMPTY STATE */
-        .empty-state {
-            text-align: center;
-            padding: 4rem 2rem;
-            color: var(--muted);
-        }
+        .form-group select option { background: var(--surface2); color: var(--text); }
+
+        .empty-state { text-align: center; padding: 4rem 2rem; color: var(--muted); }
         .empty-state .icon { font-size: 3rem; margin-bottom: 1rem; opacity: 0.4; }
         .empty-state h3 { font-family: 'Syne', sans-serif; font-size: 1.1rem; color: var(--text); margin-bottom: 0.5rem; }
 
-        /* FLASH */
         .flash { padding: 0.85rem 1.25rem; border-radius: 10px; margin-bottom: 1.5rem; font-size: 0.875rem; font-weight: 500; }
         .flash-success { background: rgba(79,255,176,0.1); color: var(--accent); border: 1px solid rgba(79,255,176,0.2); }
         .flash-error { background: rgba(255,77,109,0.1); color: var(--danger); border: 1px solid rgba(255,77,109,0.2); }
 
-        /* ANIMATIONS */
         @keyframes fadeUp { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: translateY(0); } }
         .animate { animation: fadeUp 0.4s ease both; }
         .animate:nth-child(1) { animation-delay: 0s; }
@@ -268,7 +225,6 @@
         .animate:nth-child(3) { animation-delay: 0.1s; }
         .animate:nth-child(4) { animation-delay: 0.15s; }
 
-        /* AVATAR */
         .avatar {
             width: 34px; height: 34px; border-radius: 10px;
             background: linear-gradient(135deg, var(--accent2), var(--accent));
@@ -285,18 +241,21 @@
         <a href="/" class="nav-logo">
             <span></span>Student Management System
         </a>
+    
         <div class="nav-links">
             <a href="/" class="{% if request.path == '/' %}active{% endif %}">Students</a>
             <a href="/add" class="{% if request.path == '/add' %}active{% endif %}">Add Student</a>
+            <a href="/attendance" class="{% if request.path == '/attendance' %}active{% endif %}">Mark Attendance</a>
+            <a href="/view_attendance" class="{% if request.path == '/view_attendance' %}active{% endif %}">View Attendance</a>
         </div>
     </nav>
     <main>
         {% with messages = get_flashed_messages(with_categories=true) %}
-          {% if messages %}
-            {% for cat, msg in messages %}
-              <div class="flash flash-{{ cat }}">{{ msg }}</div>
-            {% endfor %}
-          {% endif %}
+            {% if messages %}
+                {% for cat, msg in messages %}
+                    <div class="flash flash-{{ cat }}">{{ msg }}</div>
+                {% endfor %}
+            {% endif %}
         {% endwith %}
         {% block content %}{% endblock %}
     </main>

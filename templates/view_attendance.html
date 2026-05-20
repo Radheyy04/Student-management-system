@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}View Attendance {% endblock %}
+
+{% block content %}
+<div>
+    <div class="page-header animate">
+        <p class="eyebrow">Attendance Records</p>
+        <h1>View Attendance</h1>
+        <p>Track student attendance records and status.</p>
+    </div>
+
+    {% if attendance_list %}
+    <div class="table-wrap animate">
+        <table>
+            <thead>
+                <tr>
+                    
+                    <th>Attendance ID</th>
+                    <th>Student ID</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for attendance in attendance_list %}
+                <tr>
+                    <td style="color: var(--muted); font-size:0.8rem;">{{ '%03d' % attendance['attendance_id'] }}</td>
+
+                    <td>{{ attendance['student_id'] }}</td>
+
+                    <td style="color: var(--muted);">{{ attendance['attendance_date'] }}</td>
+
+                    <td>
+                        {% if attendance['status'] == "Present" %}
+                            
+                            <span style="
+                                background: rgba(79,255,176,0.1);
+                                color: var(--accent);
+                                border: 1px solid rgba(79,255,176,0.2);
+                                padding: 4px 12px;
+                                border-radius: 20px;
+                                font-size: 0.75rem;
+                                font-weight: 500;">
+                                ✓ Present
+                            </span>
+                        {% else %}
+                            <span style="
+                                background: rgba(255,77,109,0.1);
+                                color: var(--danger);
+                                border: 1px solid rgba(255,77,109,0.2);
+                                padding: 4px 12px;
+                                border-radius: 20px;
+                                font-size: 0.75rem;
+                                font-weight: 500;">
+                                ✗ Absent
+                            </span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% else %}
+    <div class="card empty-state animate">
+        <div class="icon">📋</div>
+        <h3>No attendance records yet</h3>
+        <p>Start marking attendance to see records here.</p>
+        <br>
+        <a href="/attendance" class="btn btn-primary">Mark Attendance</a>
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}
